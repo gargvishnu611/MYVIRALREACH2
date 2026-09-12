@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VYBE — an immersive music, lyrics and motion experience." />
+  <title>VYBE — Music in Motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="VYBE home">VYBE<span>.</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="active" href="#discover">Discover</a>
+      <a href="#trending">Trending</a>
+      <a href="#artists">Artists</a>
+    </nav>
+    <button class="search-button" id="searchButton" aria-label="Open search">
+      <span>Search</span>
+      <kbd>/</kbd>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="discover">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> Music in motion</p>
+        <h1>Don't just<br /><em>listen.</em><br />Enter the vibe.</h1>
+        <p class="hero-text">A cinematic music experience where sound, lyrics, depth and motion move together.</p>
+        <div class="hero-actions">
+          <button class="primary" id="exploreButton">Explore trending <span>↗</span></button>
+          <button class="ghost" id="experienceButton">Start experience <span>▶</span></button>
+        </div>
+      </div>
+
+      <div class="hero-stage" id="stage" aria-label="Interactive 3D music visualizer">
+        <div class="stage-grid"></div>
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="ring ring-one"></div>
+        <div class="ring ring-two"></div>
+        <div class="album-wrap" id="albumWrap">
+          <div class="album-shadow"></div>
+          <div class="album" id="album">
+            <div class="album-glow"></div>
+            <div class="album-art">
+              <div class="art-top">VYBE / 01</div>
+              <div class="art-title">NIGHT<br />DRIVE</div>
+              <div class="art-bottom">03:42 · VISUAL EP</div>
+              <div class="art-sphere"></div>
+            </div>
+          </div>
+        </div>
+        <div class="stage-caption">
+          <span>NOW PLAYING</span>
+          <strong id="stageTitle">Night Drive</strong>
+          <small id="stageArtist">VYBE Radio · Demo</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="player" id="player">
+      <div class="track-mini">
+        <div class="mini-art"></div>
+        <div>
+          <strong id="playerTitle">Night Drive</strong>
+          <span id="playerArtist">VYBE Radio · Demo</span>
+        </div>
+      </div>
+      <div class="player-center">
+        <div class="controls">
+          <button id="prevButton" aria-label="Previous track">◀◀</button>
+          <button class="play-button" id="playButton" aria-label="Play">▶</button>
+          <button id="nextButton" aria-label="Next track">▶▶</button>
+        </div>
+        <div class="progress-row">
+          <span id="currentTime">0:00</span>
+          <input id="progress" type="range" min="0" max="100" value="0" aria-label="Track progress" />
+          <span id="duration">0:30</span>
+        </div>
+      </div>
+      <div class="player-side">
+        <button id="lyricsButton" class="lyrics-toggle active">LYRICS</button>
+        <button id="muteButton" aria-label="Mute">VOL</button>
+      </div>
+    </section>
+
+    <section class="lyrics-section" id="lyrics">
+      <div class="section-label">01 / KINETIC LYRICS</div>
+      <div class="lyrics-head">
+        <div>
+          <p class="eyebrow">Lyrics that breathe with the track</p>
+          <h2>Every word has<br /><span>momentum.</span></h2>
+        </div>
+        <p class="section-description">Scroll, hover or play the experience. The typography responds to the current moment of the song.</p>
+      </div>
+      <div class="lyrics-card" id="lyricsCard">
+        <div class="lyrics-progress" id="lyricsProgress"></div>
+        <div class="lyrics-lines" id="lyricsLines" aria-live="polite">
+          <span class="lyric-line active" data-start="0">City lights <i>slowly</i> fade</span>
+          <span class="lyric-line" data-start="5">We leave the noise <i>behind</i></span>
+          <span class="lyric-line" data-start="10">Windows glow like <i>stars</i></span>
+          <span class="lyric-line" data-start="15">And the night starts <i>moving</i></span>
+          <span class="lyric-line" data-start="20">Heartbeat on the <i>highway</i></span>
+          <span class="lyric-line" data-start="25">This is our <i>night drive</i></span>
+        </div>
+        <div class="lyrics-meta"><span>DEMO LYRICS</span><span id="lyricClock">00:00</span></div>
+      </div>
+    </section>
+
+    <section class="trending-section" id="trending">
+      <div class="section-label">02 / DISCOVERY</div>
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">What people are feeling</p>
+          <h2>Trending <span>India.</span></h2>
+        </div>
+        <button class="text-button" id="shuffleButton">Shuffle vibe ↗</button>
+      </div>
+
+      <div class="track-grid" id="trackGrid">
+        <button class="track-card selected" data-index="0">
+          <span class="track-no">01</span><span class="track-color c1"></span><span class="track-info"><strong>Night Drive</strong><small>VYBE Radio · Demo</small></span><span class="track-duration">0:30</span>
+        </button>
+        <button class="track-card" data-index="1">
+          <span class="track-no">02</span><span class="track-color c2"></span><span class="track-info"><strong>Afterglow</strong><small>VYBE Radio · Demo</small></span><span class="track-duration">0:30</span>
+        </button>
+        <button class="track-card" data-index="2">
+          <span class="track-no">03</span><span class="track-color c3"></span><span class="track-info"><strong>Midnight Rain</strong><small>VYBE Radio · Demo</small></span><span class="track-duration">0:30</span>
+        </button>
+        <button class="track-card" data-index="3">
+          <span class="track-no">04</span><span class="track-color c4"></span><span class="track-info"><strong>Neon Hearts</strong><small>VYBE Radio · Demo</small></span><span class="track-duration">0:30</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="visual-section" id="artists">
+      <div class="visual-copy">
+        <div class="section-label">03 / ARTIST WORLDS</div>
+        <p class="eyebrow">Not just another music player</p>
+        <h2>Every artist gets<br /><span>a visual universe.</span></h2>
+        <p>Our foundation is designed for a future where artists can turn songs into immersive worlds — with 3D art, kinetic lyrics, fan interactions and shareable moments.</p>
+        <button class="primary" id="artistButton">Artist mode <span>↗</span></button>
+      </div>
+      <div class="visual-stack" id="visualStack">
+        <div class="stack-card stack-back"></div>
+        <div class="stack-card stack-mid"></div>
+        <div class="stack-card stack-front"><span>VISUAL<br />UNIVERSE</span><small>MOVE YOUR CURSOR</small></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><a class="brand" href="#top">VYBE<span>.</span></a><p>Music in motion.</p></div>
+    <p>Built as a GitHub-first prototype · © 2026 VYBE</p>
+  </footer>
+
+  <div class="search-modal" id="searchModal" aria-hidden="true">
+    <div class="search-panel">
+      <button class="close" id="closeSearch" aria-label="Close search">×</button>
+      <p class="eyebrow">Search VYBE</p>
+      <input id="searchInput" type="search" placeholder="Try a song, artist or mood…" autocomplete="off" />
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
